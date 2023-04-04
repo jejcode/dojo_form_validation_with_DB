@@ -62,14 +62,14 @@ class User:
     @staticmethod
     def validate_user(user):
         is_valued = True
-        print(User.check_email(user))
-        if not user['fname']:
+        
+        if  len(user['fname']) <= 0:
             flash("First name is missing.")
             is_valued = False
-        if not user['lname']:
+        if len(user['lname']) <= 0:
             flash('Last name is missing.')
             is_valued = False
-        if not user['email']:
+        if len(user['email']) <= 0:
             flash('Email is missing.')
             is_valued = False
         if not EMAIL_REGEX.match(user['email']):
@@ -79,3 +79,6 @@ class User:
             flash('Email already exists. Please enter a different email address.')
             is_valued = False
         return is_valued
+    
+    # according to the solution, you can loop through the user dictionary and create a message
+    # for each case
