@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read (One)</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container col-6">
+        <div class="row justify-content-center align-items-center">
+            <h1 class="col-auto">User {{ user.id }}</h1>
+            <a class="col-auto" href="/users">Home</a>
+        </div>
+        <div class="align-items-center border border-success rounded p-3">
+            <p class="">Full Name: {{ user.first_name }} {{ user.last_name }}</p>
+            <p>Email: {{ user.email }}</p>
+            <p>Created On: {{ user.created_at.strftime('%B %d, %Y') }}</p>
+            <p>Last Updated On: {{ user.updated_at.strftime('%B %d, %Y at %I:%M %p') }}</p>
+        </div>
+        <div>
+            <a href="/users/{{ user.id }}/edit">Edit</a> | <a href="/users/{{ user.id }}/delete">Delete</a>
+        </div>
+
+    </div>
+</body>
+</html>

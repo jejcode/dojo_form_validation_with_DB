@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read (All)</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h1 class="row justify-content-md-center">All Users</h1>
+        <table class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th  class="text-warning" scope="col">ID</th>
+                    <th  class="text-warning" scope="col">Full Name</th>
+                    <th  class="text-warning" scope="col">Email</th>
+                    <th  class="text-warning" scope="col">Created On</th>
+                    <th  class="text-warning" scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td>{{ user.id}}</td>
+                        <td>{{ user.first_name}} {{ user.last_name }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.created_at.strftime('%B %d, %Y') }}</td>
+                        <td><a href="/users/{{ user.id }}">Show</a> | <a href="/users/{{ user.id }}/edit">Edit</a> | <a href="/users/{{ user.id }}/delete">Delete</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a class="row" href="/users/new">Add a New User</a>
+
+    </div>
+</body>
+</html>
